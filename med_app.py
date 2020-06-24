@@ -6,7 +6,7 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from config import Config 
+# from config import Config 
 import json
 from sqlalchemy import create_engine
 import numpy as np
