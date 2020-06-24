@@ -34,6 +34,7 @@ import psycopg2
 from psycopg2.extras import DictCursor, execute_values
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 
@@ -43,32 +44,16 @@ load_dotenv()
 db = SQLAlchemy()
 migrate = Migrate()
 
-class Medcab(db.Model):
-    __tablename__ = "medcab"
-    id = db.Column(db.Integer, primary_key = True) # pylint: disable=maybe-no-member
-    Effects = db.Column(db.String(200)) # pylint: disable=maybe-no-member
-    Type = db.Column(db.String(200)) # pylint: disable=maybe-no-member
-
-    def __repr__(self):
-        return f'<Medcab {self.Effects} {self.Type}'
-
-
-def parse_records(database_records):
-    parsed_records = []
-    for record in database_records:
-        parsed_record = record.__dict__
-        del parsed_record["_sa_instance_state"]
-        parsed_records.append(parsed_record)
-    return parsed_records        
-
 #Init app
 
 def create_app():
-    DATABASE_URL = os.getenv('DATABASE_URL')
-    app = Flask(__name__)
-    db.init_app(app)
-    migrate.init_app(app, db)
-    # app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+
+
+        DATABASE_URL = os.getenv('DATABASE_URL')
+        app = Flask(__name__)
+        db.init_app(app)
+        migrate.init_app(app, db)
+        # app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
     ENV = 'dev'
         
@@ -85,6 +70,26 @@ def create_app():
     df = pd.read_csv('merged.csv')
     # db = df.to_sql(con=engine, index_label='id',
     #             name=Medcab.__tablename__, if_exists='replace')
+
+
+    class Medcab(db.Model):
+        __tablename__ = "medcab"
+        id = db.Column(db.Integer, primary_key = True) # pylint: disable=maybe-no-member
+        Effects = db.Column(db.String(200)) # pylint: disable=maybe-no-member
+        Type = db.Column(db.String(200)) # pylint: disable=maybe-no-member
+
+        def __repr__(self):
+            return f'<Medcab {self.Effects} {self.Type}'
+
+
+    def parse_records(database_records):
+        parsed_records = []
+        for record in database_records:
+            parsed_record = record.__dict__
+            del parsed_record["_sa_instance_state"]
+            parsed_records.append(parsed_record)
+        return parsed_records        
+
 
     def get_word_vectors(docs):
         return [nlp(doc).vector for doc in docs]
