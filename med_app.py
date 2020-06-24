@@ -87,7 +87,7 @@ def create_app():
     engine = create_engine('sqlite:///med_cab.db')
     Medcab.metadata.create_all(engine)
     # file_name = 'https://raw.githubusercontent.com/kellischeuble/strain_recommender/master/data/merged.csv'
-    df = pd.read_csv('merged.csv')
+    # df = pd.read_csv('merged.csv')
 
     # def get_word_vectors(docs):
     #     return [nlp(doc).vector for doc in docs]
