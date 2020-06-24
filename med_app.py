@@ -47,7 +47,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 MODEL_FILEPATH = os.path.join(os.path.dirname(__file__), "rfc_lg.joblib")
-nlp = en_core_web_lg.load()
+# nlp = en_core_web_lg.load()
 
 
 class Medcab(db.Model):
