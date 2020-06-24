@@ -37,14 +37,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# import spacy
-# import spacy.cli
-# spacy.cli.download("en_core_web_lg")
-# import en_core_web_lg
-# from joblib import load
-
-
-
 # MODEL_FILEPATH = os.path.join(os.path.dirname(__file__), "rfc_lg.joblib")
 # nlp = en_core_web_lg.load()
 
@@ -94,30 +86,30 @@ def create_app():
     # db = df.to_sql(con=engine, index_label='id',
     #             name=Medcab.__tablename__, if_exists='replace')
 
-    # def get_word_vectors(docs):
-    #     return [nlp(doc).vector for doc in docs]
-    # def cann_pred(user_input):
-    #     request = [f'{user_input}']
-    #     custom = get_word_vectors(request)
-    #     output = rfc_lg.predict(custom)[0]
+    def get_word_vectors(docs):
+        return [nlp(doc).vector for doc in docs]
+    def cann_pred(user_input):
+        request = [f'{user_input}']
+        custom = get_word_vectors(request)
+        output = rfc_lg.predict(custom)[0]
 
-    #     if output == 'hybrid':
-    #         prob = rfc_lg.predict_proba(custom)[0][0]
-    #     elif output == 'indica':
-    #         prob = rfc_lg.predict_proba(custom)[0][1]
-    #     else:
-    #         prob = rfc_lg.predict_proba(custom)[0][2]
-    #     return(f"We're {prob*100:.0f}% confident you should try the {output} strain!")
+        if output == 'hybrid':
+            prob = rfc_lg.predict_proba(custom)[0][0]
+        elif output == 'indica':
+            prob = rfc_lg.predict_proba(custom)[0][1]
+        else:
+            prob = rfc_lg.predict_proba(custom)[0][2]
+        return(f"We're {prob*100:.0f}% confident you should try the {output} strain!")
 
-    # def load_model():
-    #     with open(MODEL_FILEPATH, "rb") as model_file: # r - read the file, rb - read the binary file
-    #         saved_model = joblib.load(model_file)
-    #     return saved_model
+    def load_model():
+        with open(MODEL_FILEPATH, "rb") as model_file: # r - read the file, rb - read the binary file
+            saved_model = joblib.load(model_file)
+        return saved_model
 
-    @app.route('/')
-    @app.route('/home')
-    def index():
-        return f'Welcome to med Cabinet!'
+    # @app.route('/')
+    # @app.route('/home')
+    # def index():
+    #     return f'Welcome to med Cabinet!'
 
     # @app.route('/effects/<effect>', methods=['GET']) 
     # def eff(effect):
