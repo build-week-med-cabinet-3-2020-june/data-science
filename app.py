@@ -6,7 +6,7 @@ from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
 
 nlp = en_core_web_lg.load()
-rfc_lg = load("rfc_lg_strain.joblib")
+rfc_lg = load("rfc_lg.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
@@ -35,7 +35,10 @@ def index():
 @app.route("/predictions", methods=["POST"])
 def predictions():
 
-    input = request.form["effects"]
+    if request.form:
+        input = request.form["effects"]
+    else:
+        input = request.json["effects"]
     custom = get_word_vectors(input)
     output = rfc_lg.predict(custom)[0]
 

@@ -1,1 +1,1 @@
-web: gunicorn app:med_app
+web: gunicorn app:app
