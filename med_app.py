@@ -52,7 +52,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 class Medcab(db.Model):
-    __tablename__ = "Medcab"
+    __tablename__ = "medcab"
     id = db.Column(db.Integer, primary_key = True) # pylint: disable=maybe-no-member
     Effects = db.Column(db.String(200)) # pylint: disable=maybe-no-member
     Type = db.Column(db.String(200)) # pylint: disable=maybe-no-member
