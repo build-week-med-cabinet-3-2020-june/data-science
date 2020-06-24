@@ -1,8 +1,8 @@
 import pandas as pd
-import os
-import psycopg2
+import psycopg2, os
 from psycopg2.extras import DictCursor, execute_values
 from dotenv import load_dotenv
+from med_app import Medcab
 
 load_dotenv()
 
@@ -26,3 +26,4 @@ execute_values(cursor, insert_query, list_of_types)
 connection.commit()
 cursor.close()
 connection.close()
+

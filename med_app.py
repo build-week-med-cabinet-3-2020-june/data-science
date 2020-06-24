@@ -52,11 +52,11 @@ MODEL_FILEPATH = os.path.join(os.path.dirname(__file__), "rfc_lg.joblib")
 
 class Medcab(db.Model):
     id = db.Column(db.Integer, primary_key = True) # pylint: disable=maybe-no-member
-    Effects = db.Column(db.String(200), unique=True) # pylint: disable=maybe-no-member
-    Type = db.Column(db.String(200), unique = True) # pylint: disable=maybe-no-member
+    Effects = db.Column(db.String(200)) # pylint: disable=maybe-no-member
+    Type = db.Column(db.String(200)) # pylint: disable=maybe-no-member
 
     def __repr__(self):
-        return f'<Medcab {self.effects} {self.type_str}'
+        return f'<Medcab {self.Effects} {self.Type}'
 
 
 def parse_records(database_records):
@@ -70,9 +70,11 @@ def parse_records(database_records):
 #Init app
 
 def create_app():
+    # DATABASE_URL = os.getenv('DATABASE_URL')
     app = Flask(__name__)
     db.init_app(app)
     migrate.init_app(app, db)
+    # app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
     ENV = 'dev'
         
@@ -86,8 +88,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
     engine = create_engine('sqlite:///med_cab.db')
     Medcab.metadata.create_all(engine)
-    # file_name = 'https://raw.githubusercontent.com/kellischeuble/strain_recommender/master/data/merged.csv'
-    # df = pd.read_csv('merged.csv')
+    df = pd.read_csv('merged.csv')
 
     # def get_word_vectors(docs):
     #     return [nlp(doc).vector for doc in docs]
@@ -112,16 +113,16 @@ def create_app():
     @app.route('/')
     @app.route('/home')
     def index():
-        return f'Hello World!'
+        return f'welcome to med Cabinet!'
 
-    @app.route('/effects/<effect>', methods=['GET']) 
-    def eff(effect):
-        # FETCHING FROM THE DATATBASE
-        effects = Medcab.query.filter_by(effect=effect)
-        parsed = parse_records(effects.all())
-        input_user = get_word_vectors(parsed)
-        input_user1 = cann_pred(input_user)
-        return jsonify(input_user1)
+    # @app.route('/effects/<effect>', methods=['GET']) 
+    # def eff(effect):
+    #     # FETCHING FROM THE DATATBASE
+    #     effects = Medcab.query.filter_by(effect=effect)
+    #     parsed = parse_records(effects.all())
+    #     input_user = get_word_vectors(parsed)
+    #     input_user1 = cann_pred(input_user)
+    #     return jsonify(input_user1)
 
     @app.route('/results')
     def results():
