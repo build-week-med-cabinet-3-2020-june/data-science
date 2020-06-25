@@ -2,7 +2,7 @@ import pandas as pd
 import psycopg2, os
 from psycopg2.extras import DictCursor, execute_values
 from dotenv import load_dotenv
-from med_app import Medcab
+
 
 load_dotenv()
 
@@ -21,7 +21,7 @@ effects = df.to_dict("records")
 
 list_of_types = [(c["Effects"], c["Type"]) for c in effects]
 print(list_of_types)
-insert_query = "INSERT INTO medcab (Effects, Types) VALUES %s"
+insert_query = "INSERT INTO medcab (Effects, Type) VALUES %s"
 execute_values(cursor, insert_query, list_of_types)
 connection.commit()
 cursor.close()
