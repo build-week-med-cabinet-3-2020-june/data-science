@@ -15,6 +15,10 @@ DB_HOST = os.getenv("DB_HOST")
 connection = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
 cursor = connection.cursor(cursor_factory=DictCursor)
 
+cursor.execute("Select * FROM medcab LIMIT 1")
+res = cursor.fetchall()
+print(res)
+
 df = pd.read_csv('merged.csv')
 
 effects = df.to_dict("records")
