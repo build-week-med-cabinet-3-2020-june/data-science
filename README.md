@@ -4,19 +4,24 @@
 
 
 ''' 
+
 git clone https://github.com/build-week-med-cabinet-3-2020-june/data-science.git
 cd data-science
+
 '''
 
 Setup
 
 '''
+
 pipenv install
+
 ''''
 
 ## Usage 
 
 # On Windows:
+
 '''
 export FLASK_APP=web_app # one-time thing, to set the env var
 flask run
@@ -25,6 +30,7 @@ Open in a debug mode
 set FLASK_ENV=development
 set FLASK_APP=med_app
 flask run 
+
 '''
 
 ## Migrate the DATABASE 
