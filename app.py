@@ -1,11 +1,11 @@
 import spacy
 import spacy.cli
-spacy.cli.download("en_core_web_md")
-import en_core_web_md
+spacy.cli.download("en_core_web_sm")
+import en_core_web_sm
 from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
 
-nlp = en_core_web_md.load()
+nlp = en_core_web_sm.load()
 rfc_lg = load("rfc_lg.joblib")
 
 def get_word_vectors(docs):
