@@ -7,7 +7,7 @@
 git clone https://github.com/build-week-med-cabinet-3-2020-june/data-science.git
 cd data-science
 
-#Setup
+Setup
 
 '''sh
 pipenv install
