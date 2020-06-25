@@ -6,7 +6,7 @@ from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
 
 nlp = en_core_web_sm.load()
-rfc_lg = load("rfc_lg.joblib")
+rfc_lg = load("rfc_sm.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
