@@ -1,12 +1,13 @@
 import spacy
 import spacy.cli
 #spacy.cli.download("en_core_web_sm")
-import en_core_web_sm
+import en_core_web_md
 from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
+from flask_cors import CORS, cross_origin
 
-nlp = en_core_web_sm.load()
-rfc_lg = load("rfc_sm_strain33.joblib")
+nlp = en_core_web_md.load()
+rfc_lg = load("rfc_md_strain33v2.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
@@ -33,6 +34,7 @@ def index():
     return send_from_directory("", "index.html")
 
 @app.route("/predictions", methods=["POST"])
+@cross_origin
 def predictions():
 
     if request.form:
