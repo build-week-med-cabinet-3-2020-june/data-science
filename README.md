@@ -47,13 +47,16 @@ Clone the repository
     heroku git:clone -a med-cab-api
 
 Deploy your changes
+
     git add .
     git commit -am "Creating an API"
     git push heroku master
 
 heroku run bash ==> 
+
     FLASK_APP=med_app flask db init 
     FLASK_APP=med_app flask db migrate
     FLASK_APP=med_app flask db upgrade
 
-run data_pipeline.py file to insert data 
+run 
+    data_pipeline.py #file to insert data 
