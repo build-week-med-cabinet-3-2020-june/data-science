@@ -7,7 +7,7 @@ from flask import Flask, request, send_from_directory, jsonify
 from flask_cors import CORS, cross_origin
 
 nlp = en_core_web_sm.load()
-rfc_lg = load("rfc_md_strain33v3.joblib")
+rfc_lg = load("rfc_sm_strain15.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
