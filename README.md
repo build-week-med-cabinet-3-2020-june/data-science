@@ -2,12 +2,8 @@
 
 # Installation 
 
-
-
     git clone https://github.com/build-week-med-cabinet-3-2020-june/data-science.git
     cd data-science
-
-
 
 Setup
 
@@ -42,22 +38,23 @@ run both when changing the schema:
 
     pip install heroku 
 
-heroku login
-Clone the repository
+1. Heroku login
+2. Clone the repository
 
     heroku git:clone -a med-cab-api
 
-Deploy your changes
+Deploy your changes with:
 
     git add .
     git commit -am "Creating an API"
     git push heroku master
 
-heroku run bash ==> 
+Run Bash
 
     FLASK_APP=med_app flask db init 
     FLASK_APP=med_app flask db migrate
     FLASK_APP=med_app flask db upgrade
 
-run 
+Run:
+
     data_pipeline.py #file to insert data 
