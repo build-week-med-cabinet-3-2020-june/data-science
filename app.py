@@ -5,7 +5,7 @@ import en_core_web_md
 from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
 
-nlp = en_core_web_md.load()
+nlp = en_core_web_sm.load()
 rfc_lg = load("rfc_md_strain33v3.joblib")
 
 def get_word_vectors(docs):
