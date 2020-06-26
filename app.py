@@ -1,7 +1,7 @@
 import spacy
 import spacy.cli
 #spacy.cli.download("en_core_web_sm")
-import en_core_web_md
+import en_core_web_sm
 from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
 
