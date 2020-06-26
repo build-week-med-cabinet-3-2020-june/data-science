@@ -1,6 +1,6 @@
-# H2 data-science
+## Data Science
 
-# H1 Installation 
+# Installation 
 
 
 ''' 
