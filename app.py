@@ -1,12 +1,13 @@
 import spacy
 import spacy.cli
-#spacy.cli.download("en_core15_web_sm")
+#spacy.cli.download("en_core_web_sm")
 import en_core_web_sm
 from joblib import load
 from flask import Flask, request, send_from_directory, jsonify
+from flask_cors import CORS, cross_origin
 
 nlp = en_core_web_sm.load()
-rfc_lg = load("rfc_sm_strain15.joblib")
+rfc_lg = load("rfc_md_strain33v3.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
@@ -26,7 +27,9 @@ def cann_pred(user_input):
     # This is a stretch goal
     # return(f"We're {prob*100:.0f}% confident you should try the {output} strain and {output2} fits your criteria the most!")
 
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def index():
