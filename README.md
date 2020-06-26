@@ -15,9 +15,9 @@ Setup
 
 ## Usage 
 
-# On Windows:
+### On Windows:
 
-'''
+
     export FLASK_APP=web_app # one-time thing, to set the env var
     flask run
     
@@ -28,7 +28,7 @@ Open in a debug mode
     set FLASK_APP=med_app
     flask run 
 
-# Migrate the DATABASE 
+### Migrate the DATABASE 
 
 Windows users can omit the "FLASK_APP=web_app" part...
 
@@ -40,7 +40,7 @@ run both when changing the schema:
 
     pip3 install config
 
-# Heroku - create a database and upload to heroku  
+### Heroku - create a database and upload to heroku  
 
     pip install heroku 
 
