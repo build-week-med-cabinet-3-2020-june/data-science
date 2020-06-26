@@ -2,7 +2,7 @@
 
 # Installation 
 
-
+![alt text](https://www.google.com/imgres?imgurl=https%3A%2F%2Fdynaimage.cdn.cnn.com%2Fcnn%2Fc_fill%2Cg_auto%2Cw_1200%2Ch_675%2Car_16%3A9%2Fhttps%253A%252F%252Fcdn.cnn.com%252Fcnnnext%252Fdam%252Fassets%252F191031084204-marijuana-flower-stock.jpg&imgrefurl=https%3A%2F%2Fwww.cnn.com%2F2020%2F01%2F14%2Fhealth%2Fweed-impact-driving-wellness%2Findex.html&tbnid=8RTmXeqTOwnH0M&vet=12ahUKEwjIzfiWmJ7qAhUbUM0KHeGzCIQQMygXegUIARC-AQ..i&docid=oTigYOrkHnj0xM&w=1200&h=675&q=marijuana&ved=2ahUKEwjIzfiWmJ7qAhUbUM0KHeGzCIQQMygXegUIARC-AQ)
 ''' 
 
 git clone https://github.com/build-week-med-cabinet-3-2020-june/data-science.git
