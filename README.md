@@ -61,7 +61,7 @@ Run:
 
 
 
-# Flask-RESTful API project template
+# Flask API project
 
 This project shows one of the possible ways to implement RESTful API server.
 
