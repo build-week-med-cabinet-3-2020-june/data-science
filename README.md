@@ -26,7 +26,7 @@ Open in a debug mode and set:
     FLASK_APP=med_app
     flask run 
 
-### Migrate the DATABASE 
+### Migrate the Database
 
 Windows users can omit the "FLASK_APP=web_app" part...
     FLASK_APP=med_app flask db init #> generates app/migrations dir
@@ -37,7 +37,8 @@ run both when changing the schema:
 
     pip3 install config
 
-### Heroku - create a database and upload to heroku  
+### Heroku
+#### Create a database and upload to Heroku  
 
     pip install heroku 
 
