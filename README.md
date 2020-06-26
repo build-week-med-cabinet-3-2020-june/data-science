@@ -2,7 +2,6 @@
 
 # Installation 
 
-![alt text](https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.squarespace-cdn.com%2Fcontent%2Fv1%2F57ed9f4cbe65948d363da3f8%2F1551592356804-JOIZY1YXIPVN9V6QH08D%2Fke17ZwdGBToddI8pDm48kPnsf5mMwK3KDy1tisBlUmRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyS4d2ygLGTER2Ftu3sSYRLmU3LUrpV3s4CHzcPlb2Kt5_AyYgzyUvA4JRlWfdald8%2FMarijuana.png)
 
 ''' 
 
