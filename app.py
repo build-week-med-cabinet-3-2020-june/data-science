@@ -7,7 +7,7 @@ from flask import Flask, request, send_from_directory, jsonify
 from flask_cors import CORS, cross_origin
 
 nlp = en_core_web_md.load()
-rfc_lg = load("rfc_md_strain33v2.joblib")
+rfc_lg = load("rfc_md_strain33v3.joblib")
 
 def get_word_vectors(docs):
     return [nlp(doc).vector for doc in docs]
@@ -34,7 +34,6 @@ def index():
     return send_from_directory("", "index.html")
 
 @app.route("/predictions", methods=["POST"])
-@cross_origin
 def predictions():
 
     if request.form:
